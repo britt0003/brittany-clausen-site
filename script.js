@@ -55,7 +55,7 @@ document.getElementById('newsletterForm').addEventListener('submit', async funct
   btn.disabled = true;
 
   try {
-    const res = await fetch('/subscribe', {
+    const res = await fetch('https://brevo-subscribe.brittany-60b.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, firstName }),
