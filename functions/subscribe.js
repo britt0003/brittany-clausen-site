@@ -9,7 +9,7 @@ export async function onRequestPost({ request, env }) {
   };
 
   try {
-    const { email, firstName } = await request.json();
+    const { email, firstName, lastName } = await request.json();
 
     if (!email) {
       return new Response(JSON.stringify({ error: 'Email required' }), {
@@ -27,7 +27,7 @@ export async function onRequestPost({ request, env }) {
       },
       body: JSON.stringify({
         email,
-        attributes: { FIRSTNAME: firstName || '' },
+        attributes: { FIRSTNAME: firstName || '', LASTNAME: lastName || '' },
         listIds: [2],
         updateEnabled: true,
       }),

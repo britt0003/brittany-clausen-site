@@ -441,26 +441,35 @@
           <strong>The Real Work — Self-Reflection Journal</strong>
           <p>Five journal prompts that cut through the performance and get to what's actually running the show — so you can stop circling the same patterns and start rising from the inside out.</p>
         </div>
-        <form class="nl-form" id="newsletterForm">
-          <div class="form-group">
-            <label for="nl-first">First Name</label>
-            <input type="text" id="nl-first" name="firstName" placeholder="Your first name" required />
+        <form class="nl-form" id="newsletterForm" novalidate>
+          <div class="form-row-two">
+            <div class="form-group">
+              <label for="nl-first">First Name <span class="required-star">*</span></label>
+              <input type="text" id="nl-first" name="firstName" placeholder="First name" required autocomplete="given-name" />
+              <span class="field-error" id="err-first">Required.</span>
+            </div>
+            <div class="form-group">
+              <label for="nl-last">Last Name <span class="required-star">*</span></label>
+              <input type="text" id="nl-last" name="lastName" placeholder="Last name" required autocomplete="family-name" />
+              <span class="field-error" id="err-last">Required.</span>
+            </div>
           </div>
           <div class="form-group">
-            <label for="nl-email">Email Address</label>
-            <input type="email" id="nl-email" name="email" placeholder="your@email.com" required />
+            <label for="nl-email">Email Address <span class="required-star">*</span></label>
+            <input type="email" id="nl-email" name="email" placeholder="your@email.com" required autocomplete="email" />
+            <span class="field-error" id="err-email">Please enter a valid email address.</span>
           </div>
-          <button type="submit" class="btn btn-primary btn-full">Yes, I Want the EQ Edge →</button>
-          <p class="form-note">No spam, ever. Unsubscribe anytime.</p>
+          <button type="submit" class="btn btn-primary btn-full">Send Me the Journal →</button>
+          <p class="form-note">* All fields required. No spam, ever. Unsubscribe anytime.</p>
         </form>
         <div class="nl-success" id="nlSuccess" style="display:none;">
-          <span class="success-icon">✓</span>
-          <strong>You're in. Welcome to the EQ Edge.</strong>
-          <p>Your free guide is ready right now — no waiting on your inbox.</p>
-          <a href="/eq-self-assessment-guide.pdf" download="EQ-Self-Assessment-Guide-Brittany-Clausen.pdf" class="btn btn-primary btn-full" style="margin-top:16px;">
-            ⬇ Download Your EQ Self-Assessment Guide
+          <div class="success-icon-wrap">✓</div>
+          <strong>You're in — your journal is ready.</strong>
+          <p>Click the button below to download <em>The Real Work — Self-Reflection Journal</em>.</p>
+          <a href="eq-self-assessment-guide.pdf" download="The-Real-Work-Self-Reflection-Journal-Brittany-Clausen.pdf" class="btn btn-primary btn-full" id="manualDownloadBtn" style="margin-top:16px;">
+            ⬇ Download The Real Work Journal
           </a>
-          <p class="form-note" style="margin-top:10px;">A copy is also on its way to your inbox.</p>
+          <p class="form-note" style="margin-top:10px;">Welcome to the EQ Edge. Your first issue is on its way.</p>
         </div>
       </div>
     </div>
