@@ -366,23 +366,46 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 40px;
 }
 
-.logo-pill {
-  font-size: .8rem;
-  font-weight: 600;
-  color: var(--navy);
-  padding: 7px 18px;
-  border: 1.5px solid var(--border);
-  border-radius: 50px;
-  background: var(--white);
-  letter-spacing: .03em;
+.press-logo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  opacity: 0.55;
+  filter: grayscale(100%);
+  transition: opacity .3s ease, filter .3s ease;
 }
-.logo-pill.highlight {
-  border-color: var(--gold);
+.press-logo-item:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+.press-logo-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.press-logo-full {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+}
+.press-logo-name {
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1.3;
   color: var(--navy);
-  background: rgba(201,168,76,.08);
+  font-family: var(--font-sans);
+  letter-spacing: .02em;
+}
+.press-logo-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
 }
 
 /* --- ABOUT --- */
