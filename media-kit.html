@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media Kit — Brittany Clausen, MSW</title>
+  <meta name="description" content="Download Brittany Clausen's official speaker media kit — bio, headshots, topics, and booking information." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #162040;
+      --navy-mid:  #1e2f54;
+      --gold:      #C9A84C;
+      --gold-lt:   #DBBE6A;
+      --text:      #1A1A2E;
+      --text-muted:#5A5A72;
+      --border:    #E6E0D8;
+      --cream:     #FAF8F5;
+      --white:     #FFFFFF;
+      --font-serif:'Playfair Display', Georgia, serif;
+      --font-sans: 'Poppins', system-ui, sans-serif;
+      --radius:    16px;
+      --transition:all .25s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── GOLD TOP BAR ── */
+    .accent-bar { height: 4px; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-lt) 100%); }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      padding: 24px 24px 28px;
+      text-align: center;
+    }
+    .header-back {
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255,255,255,.55);
+      font-size: .8rem;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .header-back:hover { color: var(--gold); }
+    .header-inner { position: relative; max-width: 720px; margin: 0 auto; }
+    .header-eyebrow {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    header h1 em { font-style: italic; color: var(--gold); }
+    header p {
+      font-size: .9rem;
+      color: rgba(255,255,255,.6);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 1060px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 56px 24px;
+    }
+
+    /* ── LEFT PANEL — what's inside ── */
+    .kit-preview {
+      padding-right: 56px;
+      border-right: 1px solid var(--border);
+    }
+    .kit-preview h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .kit-preview > p {
+      font-size: .88rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+
+    .kit-items { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+    .kit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+    }
+    .kit-item-icon {
+      font-size: 1.25rem;
+      width: 38px; height: 38px;
+      background: #faf6ee;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .kit-item strong { display: block; font-size: .88rem; color: var(--navy); margin-bottom: 2px; }
+    .kit-item span { font-size: .78rem; color: var(--text-muted); }
+
+    .kit-quote {
+      padding: 20px 22px;
+      background: var(--navy);
+      border-radius: 12px;
+      border-left: 3px solid var(--gold);
+    }
+    .kit-quote p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: .92rem;
+      color: rgba(255,255,255,.82);
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+    .kit-quote cite {
+      font-size: .75rem;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    /* ── RIGHT PANEL — form ── */
+    .kit-form-wrap { padding-left: 56px; }
+    .kit-form-wrap h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .kit-form-wrap > p {
+      font-size: .88rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+
+    /* Form */
+    .mk-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-row-two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+
+    label {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: .02em;
+    }
+    .req { color: var(--gold); }
+
+    input[type="text"], input[type="email"], input[type="tel"], select {
+      width: 100%;
+      padding: 11px 14px;
+      font-size: .88rem;
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      transition: var(--transition);
+      outline: none;
+    }
+    input:focus, select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,.15);
+    }
+    input.input-error { border-color: #df2f4a; }
+    .field-error {
+      font-size: .73rem;
+      color: #df2f4a;
+      font-weight: 500;
+      display: none;
+    }
+    select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5A72' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px 28px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: var(--font-sans);
+      font-size: .92rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: .02em;
+      margin-top: 4px;
+    }
+    .btn-submit:hover {
+      background: var(--gold-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,.35);
+    }
+    .btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    .form-note {
+      font-size: .72rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* Success state */
+    .mk-success { display: none; text-align: center; padding: 20px 0; }
+    .mk-success-icon {
+      width: 56px; height: 56px;
+      background: #e8f7ef;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.4rem;
+      color: #00875a;
+    }
+    .mk-success h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .mk-success p { font-size: .88rem; color: var(--text-muted); line-height: 1.65; }
+    .mk-success .redirect-note {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: .8rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 20px 24px 28px;
+      font-size: .75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      main { grid-template-columns: 1fr; padding: 36px 20px; gap: 40px; }
+      .kit-preview { padding-right: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 40px; }
+      .kit-form-wrap { padding-left: 0; }
+      .form-row-two { grid-template-columns: 1fr; }
+      .header-back { position: static; transform: none; margin-bottom: 12px; display: inline-flex; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="accent-bar"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="header-back">← brittanyclausen.com</a>
+    <span class="header-eyebrow">Speaker Media Kit</span>
+    <h1>Brittany Clausen, MSW<br /><em>Speaker · Facilitator · EQ Strategist</em></h1>
+    <p>Complete the form below to access Brittany's full media kit — bio, headshots, keynote topics, and booking details.</p>
+  </div>
+</header>
+
+<main>
+  <!-- LEFT: What's inside -->
+  <div class="kit-preview">
+    <h2>What's Inside</h2>
+    <p>Everything you need to feature Brittany at your event, in your publication, or on your platform.</p>
+
+    <div class="kit-items">
+      <div class="kit-item">
+        <div class="kit-item-icon">📸</div>
+        <div>
+          <strong>Professional Headshots</strong>
+          <span>High-resolution photos for print and digital use</span>
+        </div>
+      </div>
+      <div class="kit-item">
+        <div class="kit-item-icon">📝</div>
+        <div>
+          <strong>Full Speaker Bio</strong>
+          <span>Long form, short form, and one-line versions</span>
+        </div>
+      </div>
+      <div class="kit-item">
+        <div class="kit-item-icon">🎤</div>
+        <div>
+          <strong>Keynote Topics & Descriptions</strong>
+          <span>All three signature talks with learning outcomes</span>
+        </div>
+      </div>
+      <div class="kit-item">
+        <div class="kit-item-icon">📊</div>
+        <div>
+          <strong>Audience Impact & Social Proof</strong>
+          <span>Data, testimonials, and media features</span>
+        </div>
+      </div>
+      <div class="kit-item">
+        <div class="kit-item-icon">📬</div>
+        <div>
+          <strong>Booking & Contact Details</strong>
+          <span>Availability, rates, and next steps to book</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="kit-quote">
+      <p>"Brittany is the only speaker my team still quotes six months later. She doesn't just inspire — she creates actual change."</p>
+      <cite>— Dr. Kevin J., Conference Organizer &amp; CEO</cite>
+    </div>
+  </div>
+
+  <!-- RIGHT: Form -->
+  <div class="kit-form-wrap">
+    <h2>Get Instant Access</h2>
+    <p>Fill in your details and the media kit downloads immediately — no waiting on an inbox.</p>
+
+    <form class="mk-form" id="mediaKitForm" novalidate>
+      <div class="form-row-two">
+        <div class="form-group">
+          <label for="mk-first">First Name <span class="req">*</span></label>
+          <input type="text" id="mk-first" name="firstName" placeholder="First name" required autocomplete="given-name" />
+          <span class="field-error" id="err-mk-first">Required.</span>
+        </div>
+        <div class="form-group">
+          <label for="mk-last">Last Name <span class="req">*</span></label>
+          <input type="text" id="mk-last" name="lastName" placeholder="Last name" required autocomplete="family-name" />
+          <span class="field-error" id="err-mk-last">Required.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mk-email">Email Address <span class="req">*</span></label>
+        <input type="email" id="mk-email" name="email" placeholder="your@email.com" required autocomplete="email" />
+        <span class="field-error" id="err-mk-email">Please enter a valid email.</span>
+      </div>
+      <div class="form-row-two">
+        <div class="form-group">
+          <label for="mk-company">Organization / Company</label>
+          <input type="text" id="mk-company" name="company" placeholder="Your organization" autocomplete="organization" />
+        </div>
+        <div class="form-group">
+          <label for="mk-phone">Phone</label>
+          <input type="tel" id="mk-phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mk-title">Your Title / Role</label>
+        <input type="text" id="mk-title" name="title" placeholder="e.g. Event Producer, VP of HR" autocomplete="organization-title" />
+      </div>
+      <div class="form-group">
+        <label for="mk-interest">How can Brittany help you?</label>
+        <select id="mk-interest" name="interest">
+          <option value="">Select one…</option>
+          <option value="keynote">Keynote / Conference Speaking</option>
+          <option value="corporate-training">Corporate Training or Workshop</option>
+          <option value="media">Podcast, Media, or Press Feature</option>
+          <option value="partnership">Brand Partnership</option>
+          <option value="general">General Inquiry</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-submit" id="mkSubmitBtn">
+        Get Instant Access →
+      </button>
+      <p class="form-note">* Required fields. Your info is kept private and never sold.</p>
+    </form>
+
+    <div class="mk-success" id="mkSuccess">
+      <div class="mk-success-icon">✓</div>
+      <h3>You're all set!</h3>
+      <p>Your media kit is downloading now. If it doesn't start automatically, <a href="https://www.dropbox.com/scl/fo/a6p5wak2w1e5ig6313osr/AGyl4cpInOmbXvfh68kyI9Y?rlkey=t03nkw2fly3rz14ly6j1qkv1v&st=gundahpi&dl=0" target="_blank" rel="noopener" id="manualLink">click here</a>.</p>
+      <span class="redirect-note" id="redirectCountdown">Redirecting in 3…</span>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Brittany Clausen · Envision Greatness LLC · <a href="/">brittanyclausen.com</a></p>
+</footer>
+
+<script>
+  const DROPBOX_URL = 'https://www.dropbox.com/scl/fo/a6p5wak2w1e5ig6313osr/AGyl4cpInOmbXvfh68kyI9Y?rlkey=t03nkw2fly3rz14ly6j1qkv1v&st=gundahpi&dl=0';
+  const WORKER_URL  = 'https://monday-contact.brittany-60b.workers.dev';
+
+  function triggerDownloadAndRedirect() {
+    // Open Dropbox link
+    window.open(DROPBOX_URL, '_blank');
+
+    // Countdown then redirect
+    let count = 3;
+    const el = document.getElementById('redirectCountdown');
+    const interval = setInterval(() => {
+      count--;
+      if (count > 0) {
+        el.textContent = `Redirecting in ${count}…`;
+      } else {
+        clearInterval(interval);
+        window.location.href = DROPBOX_URL;
+      }
+    }, 1000);
+  }
+
+  document.getElementById('mediaKitForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const firstInput    = document.getElementById('mk-first');
+    const lastInput     = document.getElementById('mk-last');
+    const emailInput    = document.getElementById('mk-email');
+    const companyInput  = document.getElementById('mk-company');
+    const phoneInput    = document.getElementById('mk-phone');
+    const titleInput    = document.getElementById('mk-title');
+    const interestInput = document.getElementById('mk-interest');
+    const btn           = document.getElementById('mkSubmitBtn');
+
+    const firstName = firstInput.value.trim();
+    const lastName  = lastInput.value.trim();
+    const email     = emailInput.value.trim();
+    const company   = companyInput.value.trim();
+    const phone     = phoneInput.value.trim();
+    const title     = titleInput.value.trim();
+    const interest  = interestInput.value;
+
+    // Validation
+    let valid = true;
+    const setErr = (input, errId, show) => {
+      input.classList.toggle('input-error', show);
+      document.getElementById(errId).style.display = show ? 'block' : 'none';
+      if (show) valid = false;
+    };
+
+    setErr(firstInput, 'err-mk-first', !firstName);
+    setErr(lastInput,  'err-mk-last',  !lastName);
+    setErr(emailInput, 'err-mk-email', !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+
+    if (!valid) return;
+
+    btn.textContent = 'One moment…';
+    btn.disabled = true;
+
+    try {
+      await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName, lastName, email, company, phone, title, interest }),
+      });
+    } catch (_) {
+      // Worker error doesn't block download — contact info is best-effort
+    }
+
+    // Always show success + deliver the kit
+    this.style.display = 'none';
+    document.getElementById('mkSuccess').style.display = 'block';
+    triggerDownloadAndRedirect();
+  });
+
+  // Clear errors on input
+  document.querySelectorAll('input').forEach(el => {
+    el.addEventListener('input', () => {
+      el.classList.remove('input-error');
+      const errEl = document.getElementById('err-' + el.id.replace('mk-', 'mk-'));
+      if (errEl) errEl.style.display = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>
