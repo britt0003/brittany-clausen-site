@@ -47,7 +47,7 @@ document.querySelectorAll('.speaking-grid, .shop-grid, .testimonials-grid, .podc
 
 function triggerPdfDownload() {
   const a = document.createElement('a');
-  a.href = 'eq-self-assessment-guide.pdf';
+  a.href = 'The Real Work — Self-Reflection Journal.pdf';
   a.download = 'The-Real-Work-Self-Reflection-Journal-Brittany-Clausen.pdf';
   document.body.appendChild(a);
   a.click();
