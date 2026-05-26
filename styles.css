@@ -977,7 +977,7 @@ p:last-child { margin-bottom: 0; }
 
 /* Community visual */
 .community-visual { position: relative; }
-.community-card-stack { position: relative; height: 320px; }
+.community-card-stack { position: relative; height: 380px; }
 
 .comm-card {
   position: absolute;
@@ -985,15 +985,38 @@ p:last-child { margin-bottom: 0; }
   border-radius: var(--radius);
   padding: 18px 20px;
   display: flex; gap: 12px; align-items: flex-start;
-  box-shadow: var(--shadow);
+  box-shadow: 0 12px 40px rgba(22,32,64,.16), 0 2px 8px rgba(22,32,64,.08);
   border: 1px solid var(--border);
-  width: 280px;
-  transition: var(--transition);
+  width: 290px;
+  transition: transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s ease;
+  animation: cardFloat 4s ease-in-out infinite;
 }
-.comm-card:hover { transform: translateY(-4px); }
-.comm-card.c1 { top: 0; left: 0; }
-.comm-card.c2 { top: 80px; right: 0; z-index: 2; }
-.comm-card.c3 { bottom: 0; left: 30px; z-index: 1; }
+.comm-card:hover {
+  box-shadow: 0 20px 56px rgba(22,32,64,.22);
+}
+.comm-card.c1 {
+  top: 10px; left: 0; z-index: 1;
+  animation-delay: 0s;
+  transform: rotate(-2deg);
+}
+.comm-card.c1:hover { transform: rotate(0deg) translateY(-6px); }
+.comm-card.c2 {
+  top: 100px; right: 0; z-index: 3;
+  animation-delay: 1.4s;
+  transform: rotate(1.5deg);
+}
+.comm-card.c2:hover { transform: rotate(0deg) translateY(-6px); }
+.comm-card.c3 {
+  bottom: 10px; left: 40px; z-index: 2;
+  animation-delay: 0.7s;
+  transform: rotate(-1deg);
+}
+.comm-card.c3:hover { transform: rotate(0deg) translateY(-6px); }
+
+@keyframes cardFloat {
+  0%, 100% { translate: 0 0; }
+  50%       { translate: 0 -7px; }
+}
 
 .comm-avatar {
   width: 44px; height: 44px; border-radius: 50%;
@@ -1008,19 +1031,21 @@ p:last-child { margin-bottom: 0; }
 .comm-text p { font-size: .8rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
 
 .comm-badge {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  bottom: 20px; right: -16px;
+  z-index: 5;
   background: var(--magenta); color: var(--white);
   border-radius: 50%;
-  width: 80px; height: 80px;
+  width: 82px; height: 82px;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center;
-  box-shadow: var(--shadow); z-index: 3;
+  box-shadow: 0 8px 28px rgba(184,61,170,.45);
+  border: 3px solid var(--white);
 }
 .comm-badge strong {
   font-family: var(--font-serif);
-  font-size: 1.2rem; line-height: 1;
+  font-size: 1.25rem; line-height: 1;
 }
 .comm-badge span { font-size: .56rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
 
