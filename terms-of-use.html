@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use — Brittany Clausen, MSW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:      #162040;
+      --gold:      #C9A84C;
+      --gold-lt:   #DBBE6A;
+      --magenta:   #B83DAA;
+      --text:      #1A1A2E;
+      --text-muted:#5A5A72;
+      --border:    #E6E0D8;
+      --cream:     #FAF8F5;
+      --warm-gray: #F4F1EC;
+      --white:     #FFFFFF;
+      --font-serif:'Playfair Display', Georgia, serif;
+      --font-sans: 'Poppins', system-ui, sans-serif;
+      --radius:    16px;
+      --transition:all .25s cubic-bezier(.4,0,.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+    .accent-bar { height: 4px; background: linear-gradient(90deg, var(--navy) 0%, #4A55C4 25%, #6BAEC6 50%, var(--magenta) 75%, var(--gold) 100%); }
+
+    header {
+      background: var(--navy);
+      padding: 0;
+    }
+    .header-topbar {
+      padding: 14px 28px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .header-back {
+      color: rgba(255,255,255,.55);
+      font-size: .8rem;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .header-back:hover { color: var(--gold); }
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .header-eyebrow {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    header h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    header p {
+      font-size: .88rem;
+      color: rgba(255,255,255,.5);
+    }
+
+    main {
+      flex: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 56px 24px 80px;
+    }
+
+    .legal-section { margin-bottom: 44px; }
+    .legal-section h2 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+    .legal-section p { color: var(--text-muted); margin-bottom: 14px; font-size: .9rem; }
+    .legal-section p:last-child { margin-bottom: 0; }
+    .legal-section ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .legal-section ul li {
+      font-size: .9rem;
+      color: var(--text-muted);
+      padding-left: 18px;
+      position: relative;
+    }
+    .legal-section ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+    .legal-section a { color: var(--navy); font-weight: 600; text-decoration: underline; }
+    .legal-section a:hover { color: var(--magenta); }
+
+    .notice-box {
+      background: var(--warm-gray);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 44px;
+      font-size: .88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .notice-box strong { color: var(--navy); }
+
+    .disclaimer-box {
+      background: var(--navy);
+      color: rgba(255,255,255,.75);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 44px;
+      font-size: .88rem;
+      line-height: 1.75;
+    }
+    .disclaimer-box strong { color: var(--gold); display: block; margin-bottom: 8px; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+
+    footer {
+      text-align: center;
+      padding: 20px 24px 28px;
+      font-size: .75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer .footer-legal { display: flex; gap: 20px; justify-content: center; margin-top: 8px; }
+
+    @media (max-width: 600px) {
+      main { padding: 36px 20px 60px; }
+      .header-topbar { padding: 12px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="accent-bar"></div>
+
+<header>
+  <div class="header-topbar">
+    <a href="/" class="header-back">← brittanyclausen.com</a>
+  </div>
+  <div class="header-inner">
+    <span class="header-eyebrow">Legal</span>
+    <h1>Terms of Use</h1>
+    <p>Last updated: May 26, 2026</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="notice-box">
+    <strong>Plain-language summary:</strong> By using this website, you agree to use it lawfully and respect Brittany's intellectual property. Content here is for informational purposes — it's not therapy, legal advice, or a guarantee of results.
+  </div>
+
+  <div class="legal-section">
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing or using <strong>brittanyclausen.com</strong> (the "Site"), you agree to be bound by these Terms of Use and our <a href="/privacy-policy">Privacy Policy</a>. These terms apply to all visitors, subscribers, and anyone who uses the Site. If you do not agree, please do not use the Site.</p>
+    <p>The Site is operated by <strong>Brittany D. Clausen, MSW / Envision Greatness LLC</strong>, a Minnesota limited liability company.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>2. Use of This Website</h2>
+    <p>You may use this Site for lawful purposes only. You agree not to use it in any way that is harmful, deceptive, or disruptive — to us, to other users, or to the systems that operate the Site. We reserve the right to restrict access at our discretion.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>3. Intellectual Property</h2>
+    <p>All content on this Site — including text, graphics, logos, images, course materials, frameworks, and methodologies — is the property of Brittany D. Clausen and Envision Greatness LLC and is protected by applicable intellectual property laws. You may not reproduce or distribute any content from this Site without our prior written permission. Personal, non-commercial reference use is permitted.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>4. Educational Content — Not Professional Advice</h2>
+    <div class="disclaimer-box">
+      <strong>Important Disclaimer</strong>
+      Content on this Site is provided for educational and informational purposes only. It is not a substitute for professional advice of any kind, and nothing here creates a professional relationship between you and Brittany Clausen or Envision Greatness LLC.
+    </div>
+    <p>If you need professional support, please reach out to a qualified mental health or healthcare professional.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>5. Testimonials and Results</h2>
+    <p>Testimonials featured on this Site reflect the real experiences of clients and audience members. However, individual results vary significantly based on personal effort, circumstances, background, and other factors. Testimonials are not guarantees that you will achieve the same or similar results.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>6. Third-Party Links</h2>
+    <p>This Site may contain links to third-party websites and platforms. These links are provided for convenience only. We have no control over and assume no responsibility for the content or practices of any third-party sites.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>7. Digital Products and Downloads</h2>
+    <p>Any resources available for download through this Site are provided for personal, non-commercial use only. You may not redistribute or represent these materials as your own.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>8. Disclaimer of Warranties</h2>
+    <p>This Site and all content are provided "as is" without warranties of any kind. We do not guarantee the Site will be uninterrupted or error-free, and we reserve the right to modify or discontinue any part of it at any time.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>9. Limitation of Liability</h2>
+    <p>To the fullest extent permitted by applicable law, Brittany D. Clausen and Envision Greatness LLC shall not be liable for any indirect, incidental, or consequential damages arising from your use of or inability to use this Site or its content.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>10. Governing Law and Dispute Resolution</h2>
+    <p>These Terms are governed by the laws of the State of Minnesota. We encourage resolving any concerns informally first by contacting us at <a href="mailto:info@envisiongreatnessnow.com">info@envisiongreatnessnow.com</a>.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>11. Changes to These Terms</h2>
+    <p>We reserve the right to update these Terms of Use at any time. Changes take effect immediately upon posting to this page. The "Last updated" date at the top reflects the most recent revision. Continued use of the Site after changes are posted constitutes your acceptance of the revised terms.</p>
+  </div>
+
+  <div class="legal-section">
+    <h2>12. Contact</h2>
+    <p>Questions about these Terms? Email us at <a href="mailto:info@envisiongreatnessnow.com">info@envisiongreatnessnow.com</a>.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Brittany Clausen · Envision Greatness LLC · <a href="/">brittanyclausen.com</a></p>
+  <div class="footer-legal">
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms-of-use">Terms of Use</a>
+  </div>
+</footer>
+
+</body>
+</html>

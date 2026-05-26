@@ -141,6 +141,45 @@ document.getElementById('newsletterForm').addEventListener('submit', async funct
 });
 
 
+// Podcast episode auto-population via iTunes API
+async function loadPodcastEpisodes() {
+  const list = document.getElementById('episode-list');
+  if (!list) return;
+  try {
+    const res = await fetch('https://itunes.apple.com/lookup?id=1498317400&entity=podcastEpisode&limit=6&country=us');
+    const data = await res.json();
+    const episodes = data.results.filter(r => r.kind === 'podcast-episode').slice(0, 5);
+    if (episodes.length === 0) return;
+
+    function stripHtml(html) {
+      const d = document.createElement('div');
+      d.innerHTML = html || '';
+      return (d.textContent || d.innerText || '').trim();
+    }
+
+    list.innerHTML = episodes.map(ep => {
+      const date = new Date(ep.releaseDate);
+      const month = date.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+      const day = date.getDate();
+      const mins = ep.trackTimeMillis ? Math.round(ep.trackTimeMillis / 60000) : '—';
+      const url = ep.trackViewUrl || 'https://podcasts.apple.com/us/podcast/envision-greatness/id1498317400';
+      const desc = stripHtml(ep.shortDescription || ep.description || '').substring(0, 70);
+      return `
+        <div class="episode-item">
+          <div class="ep-num">${month} ${day}</div>
+          <div class="ep-info">
+            <strong>${ep.trackName}</strong>
+            <span>${mins} min${desc ? ' · ' + desc : ''}</span>
+          </div>
+          <a href="${url}" target="_blank" rel="noopener" class="ep-play">▶</a>
+        </div>`;
+    }).join('');
+  } catch (_) {
+    // Network error — keep hardcoded episodes as fallback
+  }
+}
+loadPodcastEpisodes();
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
