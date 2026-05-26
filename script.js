@@ -42,54 +42,37 @@ document.querySelectorAll('.speaking-grid, .shop-grid, .testimonials-grid, .podc
   });
 });
 
-// Newsletter form — Brevo integration
-const BREVO_API_KEY  = 'PASTE_YOUR_BREVO_API_KEY_HERE';
-const BREVO_LIST_ID  = 0; // Replace 0 with your Brevo list ID number
+// Newsletter form — submits to Cloudflare Pages Function (/subscribe)
+// The Function securely forwards to Brevo using a server-side environment secret
 
 document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-  const btn   = this.querySelector('button[type="submit"]');
-  const email = document.getElementById('nl-email').value.trim();
+  const btn       = this.querySelector('button[type="submit"]');
+  const email     = document.getElementById('nl-email').value.trim();
   const firstName = document.getElementById('nl-first').value.trim();
 
   btn.textContent = 'Subscribing…';
   btn.disabled = true;
 
   try {
-    const res = await fetch('https://api.brevo.com/v3/contacts', {
+    const res = await fetch('/subscribe', {
       method: 'POST',
-      headers: {
-        'accept': 'application/json',
-        'content-type': 'application/json',
-        'api-key': BREVO_API_KEY
-      },
-      body: JSON.stringify({
-        email,
-        attributes: { FIRSTNAME: firstName },
-        listIds: [BREVO_LIST_ID],
-        updateEnabled: true
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, firstName }),
     });
 
-    if (res.ok || res.status === 204) {
+    const data = await res.json();
+
+    if (data.success) {
       this.style.display = 'none';
       document.getElementById('nlSuccess').style.display = 'block';
     } else {
-      const err = await res.json();
-      // If contact already exists, still show success
-      if (res.status === 400 && err.code === 'duplicate_parameter') {
-        this.style.display = 'none';
-        document.getElementById('nlSuccess').style.display = 'block';
-      } else {
-        btn.textContent = 'Try again';
-        btn.disabled = false;
-        console.error('Brevo error:', err);
-      }
+      btn.textContent = 'Try again';
+      btn.disabled = false;
     }
   } catch (err) {
     btn.textContent = 'Try again';
     btn.disabled = false;
-    console.error('Network error:', err);
   }
 });
 
