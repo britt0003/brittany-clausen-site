@@ -45,27 +45,31 @@
     /* ── HEADER ── */
     header {
       background: var(--navy);
-      padding: 24px 24px 28px;
-      text-align: center;
+      padding: 0;
+    }
+    .header-topbar {
+      padding: 14px 28px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
     .header-back {
-      position: absolute;
-      left: 24px;
-      top: 50%;
-      transform: translateY(-50%);
       color: rgba(255,255,255,.55);
       font-size: .8rem;
       font-family: var(--font-sans);
       font-weight: 500;
       letter-spacing: .04em;
       text-decoration: none;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
       transition: var(--transition);
     }
     .header-back:hover { color: var(--gold); }
-    .header-inner { position: relative; max-width: 720px; margin: 0 auto; }
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 36px;
+      text-align: center;
+    }
     .header-eyebrow {
       display: inline-block;
       font-size: .7rem;
@@ -73,22 +77,22 @@
       letter-spacing: .16em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
     header h1 {
       font-family: var(--font-serif);
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 8px;
+      line-height: 1.15;
+      margin-bottom: 10px;
     }
-    header h1 em { font-style: italic; color: var(--gold); }
+    header h1 em { font-style: italic; color: var(--gold); display: block; font-size: .85em; }
     header p {
-      font-size: .9rem;
-      color: rgba(255,255,255,.6);
+      font-size: .92rem;
+      color: rgba(255,255,255,.62);
       max-width: 480px;
       margin: 0 auto;
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     /* ── MAIN LAYOUT ── */
@@ -291,7 +295,7 @@
       .kit-preview { padding-right: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 40px; }
       .kit-form-wrap { padding-left: 0; }
       .form-row-two { grid-template-columns: 1fr; }
-      .header-back { position: static; transform: none; margin-bottom: 12px; display: inline-flex; }
+      .header-topbar { padding: 12px 20px; }
     }
   </style>
 </head>
@@ -300,8 +304,10 @@
 <div class="accent-bar"></div>
 
 <header>
-  <div class="header-inner">
+  <div class="header-topbar">
     <a href="/" class="header-back">← brittanyclausen.com</a>
+  </div>
+  <div class="header-inner">
     <span class="header-eyebrow">Speaker Media Kit</span>
     <h1>Brittany Clausen, MSW<br /><em>Speaker · Facilitator · EQ Strategist</em></h1>
     <p>Complete the form below to access Brittany's full media kit — bio, headshots, keynote topics, and booking details.</p>
