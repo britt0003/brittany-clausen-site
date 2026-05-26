@@ -374,13 +374,11 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  opacity: 0.55;
-  filter: grayscale(100%);
-  transition: opacity .3s ease, filter .3s ease;
+  opacity: 0.6;
+  transition: opacity .3s ease;
 }
 .press-logo-item:hover {
   opacity: 1;
-  filter: grayscale(0%);
 }
 .press-logo-icon {
   width: 44px;
@@ -388,11 +386,21 @@ p:last-child { margin-bottom: 0; }
   border-radius: 8px;
   object-fit: contain;
   flex-shrink: 0;
+  filter: grayscale(100%);
+  transition: filter .3s ease;
+}
+.press-logo-item:hover .press-logo-icon {
+  filter: grayscale(0%);
 }
 .press-logo-full {
   height: 34px;
   width: auto;
   object-fit: contain;
+  filter: brightness(0);
+  transition: filter .3s ease;
+}
+.press-logo-item:hover .press-logo-full {
+  filter: brightness(0) invert(0);
 }
 .press-logo-name {
   font-size: .78rem;
