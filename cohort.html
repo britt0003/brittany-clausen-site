@@ -216,15 +216,15 @@
     .for-card--blue { border-top-color: var(--blue-lt); }
     .for-card--blue:hover { box-shadow: 0 16px 48px rgba(107,174,198,.2); }
     .for-avatar {
-      width: 56px; height: 56px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      width: 72px; height: 72px; border-radius: 50%;
       margin-bottom: 20px;
-      border: 2px solid rgba(201,168,76,.25);
-      background: rgba(201,168,76,.08);
+      border: 3px solid rgba(201,168,76,.5);
+      box-shadow: 0 0 0 6px rgba(201,168,76,.08);
+      overflow: hidden; flex-shrink: 0;
     }
-    .for-avatar--mag { border-color: rgba(184,61,170,.3); background: rgba(184,61,170,.08); }
-    .for-avatar--blue { border-color: rgba(107,174,198,.3); background: rgba(107,174,198,.08); }
-    .for-avatar svg { width: 36px; height: 36px; }
+    .for-avatar--mag { border-color: rgba(184,61,170,.6); box-shadow: 0 0 0 6px rgba(184,61,170,.08); }
+    .for-avatar--blue { border-color: rgba(107,174,198,.6); box-shadow: 0 0 0 6px rgba(107,174,198,.08); }
+    .for-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .for-quote {
       font-family: var(--font-serif);
       font-size: 3rem; line-height: .8;
@@ -271,85 +271,109 @@
     .what-card p { font-size: .88rem; color: var(--text-muted); line-height: 1.7; }
 
     /* ── EBF ── */
-    .ebf-section { padding: 80px 24px; background: var(--warm-gray); }
+    .ebf-section {
+      padding: 80px 24px;
+      background: linear-gradient(160deg, #0a1020 0%, #0f1830 60%, #12102a 100%);
+      position: relative; overflow: hidden;
+    }
+    .ebf-section::before {
+      content: '';
+      position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ebf-section .section-label { color: var(--gold); }
+    .ebf-section .section-title { color: var(--white); }
+    .ebf-section .section-sub { color: rgba(255,255,255,.55); }
     .ebf-steps {
-      display: flex; align-items: flex-start;
-      gap: 0; overflow-x: auto;
-      padding: 24px 0 8px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      padding: 8px 0 16px;
     }
     .ebf-step {
-      flex: 1; min-width: 120px; text-align: center;
-      padding: 24px 12px;
-      background: var(--white);
-      border: 1px solid var(--border);
+      text-align: center;
+      padding: 24px 10px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
       border-radius: var(--radius);
-      transition: transform .25s ease, box-shadow .25s ease;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
       cursor: default;
     }
-    .ebf-step:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(22,32,64,.1); }
-    .ebf-connector { width: 32px; flex-shrink: 0; position: relative; margin-top: 56px; }
-    .ebf-connector::after {
-      content: '→';
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      color: var(--gold); font-size: 1rem; opacity: .6;
+    .ebf-step:hover { transform: translateY(-6px); background: rgba(255,255,255,.08); }
+    .ebf-connector { display: none; }
+    .ebf-num { font-size: .65rem; font-weight: 800; letter-spacing: .14em; margin-bottom: 10px; }
+    .ebf-name {
+      font-family: var(--font-serif); font-size: .95rem; font-weight: 700;
+      margin-bottom: 8px; word-break: break-word; hyphens: auto;
+      overflow-wrap: break-word;
     }
-    .ebf-num { font-size: .65rem; font-weight: 700; letter-spacing: .12em; color: var(--blue-lt); margin-bottom: 8px; }
-    .ebf-name { font-family: var(--font-serif); font-size: 1rem; color: var(--navy); margin-bottom: 6px; }
-    .ebf-hint { font-size: .75rem; color: var(--text-muted); line-height: 1.5; }
-    .ebf-s1 .ebf-num, .ebf-s1 .ebf-name { color: #6BAEC6; }
-    .ebf-s2 .ebf-num, .ebf-s2 .ebf-name { color: var(--gold); }
-    .ebf-s3 .ebf-num, .ebf-s3 .ebf-name { color: var(--magenta); }
-    .ebf-s4 .ebf-num, .ebf-s4 .ebf-name { color: #9ebfff; }
-    .ebf-s5 .ebf-num, .ebf-s5 .ebf-name { color: var(--gold-lt); }
+    .ebf-hint { font-size: .73rem; color: rgba(255,255,255,.45); line-height: 1.5; }
+    .ebf-s1 .ebf-num { color: #38bdf8; }
+    .ebf-s1 .ebf-name { color: #7dd3fc; }
+    .ebf-s1 { border-top: 3px solid #38bdf8; box-shadow: 0 0 20px rgba(56,189,248,.08); }
+    .ebf-s2 .ebf-num { color: #fbbf24; }
+    .ebf-s2 .ebf-name { color: #fcd34d; }
+    .ebf-s2 { border-top: 3px solid #fbbf24; box-shadow: 0 0 20px rgba(251,191,36,.08); }
+    .ebf-s3 .ebf-num { color: #e879f9; }
+    .ebf-s3 .ebf-name { color: #f0abfc; }
+    .ebf-s3 { border-top: 3px solid #e879f9; box-shadow: 0 0 20px rgba(232,121,249,.08); }
+    .ebf-s4 .ebf-num { color: #818cf8; }
+    .ebf-s4 .ebf-name { color: #a5b4fc; }
+    .ebf-s4 { border-top: 3px solid #818cf8; box-shadow: 0 0 20px rgba(129,140,248,.08); }
+    .ebf-s5 .ebf-num { color: #34d399; }
+    .ebf-s5 .ebf-name { color: #6ee7b7; }
+    .ebf-s5 { border-top: 3px solid #34d399; box-shadow: 0 0 20px rgba(52,211,153,.08); }
     .ebf-dimensions {
-      display: flex; gap: 10px; justify-content: center;
-      margin-top: 28px; flex-wrap: wrap;
+      display: flex; gap: 12px; justify-content: center;
+      margin-top: 36px; flex-wrap: wrap;
     }
     .ebf-dim {
-      font-size: .72rem; font-weight: 600; letter-spacing: .08em;
-      text-transform: uppercase; border-radius: 100px; padding: 5px 14px;
+      font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; border-radius: 100px; padding: 7px 18px;
     }
-    .ebf-dim--gold { background: rgba(201,168,76,.12); color: var(--gold); border: 1px solid rgba(201,168,76,.25); }
-    .ebf-dim--mag  { background: rgba(184,61,170,.12); color: #e094d9; border: 1px solid rgba(184,61,170,.25); }
-    .ebf-dim--blue { background: rgba(107,174,198,.12); color: var(--blue-lt); border: 1px solid rgba(107,174,198,.25); }
+    .ebf-dim--gold { background: rgba(251,191,36,.15); color: #fbbf24; border: 1.5px solid rgba(251,191,36,.35); }
+    .ebf-dim--mag  { background: rgba(232,121,249,.15); color: #f0abfc; border: 1.5px solid rgba(232,121,249,.35); }
+    .ebf-dim--blue { background: rgba(56,189,248,.15); color: #7dd3fc; border: 1.5px solid rgba(56,189,248,.35); }
 
     /* ── INVESTMENT / HOW IT WORKS ── */
     .how-steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-bottom: 64px;
+      gap: 16px;
+      margin-bottom: 56px;
+      align-items: start;
     }
     .how-step {
       text-align: center;
-      padding: 32px 24px;
+      padding: 36px 24px 32px;
       background: var(--white);
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: var(--radius);
       position: relative;
     }
     .how-step::after {
       content: '→';
-      position: absolute; right: -16px; top: 50%;
-      transform: translateY(-50%);
-      color: var(--gold); font-size: 1.2rem;
-      font-weight: 700; opacity: .5;
+      position: absolute; right: -12px; top: 46px;
+      color: var(--gold); font-size: 1.1rem;
+      font-weight: 700; opacity: .6; z-index: 2;
     }
     .how-step:last-child::after { display: none; }
     .how-num {
-      width: 40px; height: 40px; border-radius: 50%;
+      width: 44px; height: 44px; border-radius: 50%;
       background: linear-gradient(135deg, var(--navy), var(--royal));
-      color: var(--white); font-size: .8rem; font-weight: 700;
+      color: var(--white); font-size: .85rem; font-weight: 800;
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px;
+      margin: 0 auto 18px;
+      box-shadow: 0 4px 16px rgba(22,32,64,.2);
     }
     .how-step h3 {
       font-family: var(--font-serif);
-      font-size: 1rem; color: var(--navy);
-      margin-bottom: 8px;
+      font-size: 1.05rem; color: var(--navy);
+      margin-bottom: 10px;
     }
-    .how-step p { font-size: .83rem; color: var(--text-muted); line-height: 1.6; }
+    .how-step p { font-size: .84rem; color: var(--text-muted); line-height: 1.65; margin: 0; }
 
     .invest-box {
       background: linear-gradient(135deg, #0a1020 0%, #150d28 100%);
@@ -445,17 +469,32 @@
     footer a:hover { text-decoration: underline; }
     .footer-legal { display: flex; gap: 20px; justify-content: center; margin-top: 8px; }
 
+    /* ── FAQ ── */
+    .faq-item {
+      border-left: 3px solid transparent;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .faq-item:hover {
+      border-left-color: var(--gold);
+      box-shadow: 0 4px 20px rgba(22,32,64,.08);
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .for-you-grid, .how-steps { grid-template-columns: 1fr; }
       .what-grid { grid-template-columns: 1fr; }
       .how-step::after { display: none; }
-      .ebf-steps { gap: 6px; }
+      .ebf-steps { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .ebf-steps { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
       .hero { padding: 56px 20px 72px; }
       .invest-box { padding: 40px 24px; }
       .hero-ctas { flex-direction: column; }
+      .deposit-callout { padding: 16px 20px; }
+      .deposit-amount { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -476,7 +515,7 @@
       <span class="forming-live"><span class="dot"></span>Cohort Forming Now</span>
     </div>
     <h1>Stop Managing Alone.<br /><em>Lead in Community.</em></h1>
-    <p class="hero-sub">A curated, cohort-based coaching experience for leaders ready to stop circling the same patterns — and finally do the real work, together.</p>
+    <p class="hero-sub">For leaders, business owners, and solopreneurs who are already capable — and still circling the same patterns. This is the room where you finally stop managing it alone and start healing, growing, and leading differently.</p>
     <div class="hero-ctas">
       <a href="#invest" class="btn btn-deposit">Reserve My Spot — $100 Deposit</a>
       <a href="#who" class="btn btn-ghost-light">Is This For Me?</a>
@@ -492,33 +531,27 @@
     <p class="section-sub section-sub--light">This cohort wasn't built for general professional development. It was built for the leader who's already capable — and still stuck.</p>
     <div class="for-you-grid">
       <div class="for-card">
+        <!-- Replace src with your own photo URL -->
         <div class="for-avatar">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="20" cy="14" r="7" fill="rgba(201,168,76,.9)"/>
-            <path d="M6 38c0-7.73 6.27-14 14-14s14 6.27 14 14" stroke="rgba(201,168,76,.9)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-          </svg>
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Woman entrepreneur leader" />
         </div>
         <span class="for-quote">"</span>
         <p>I know exactly what I <strong>should</strong> do. So why do I keep ending up in the same place?</p>
-        <span class="for-who">The High Achiever Who Can't Break the Pattern</span>
+        <span class="for-who">The Woman Entrepreneur Who Can't Break the Cycle</span>
       </div>
       <div class="for-card for-card--mag">
+        <!-- Replace src with your own photo URL -->
         <div class="for-avatar for-avatar--mag">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="20" cy="14" r="7" fill="rgba(184,61,170,.9)"/>
-            <path d="M6 38c0-7.73 6.27-14 14-14s14 6.27 14 14" stroke="rgba(184,61,170,.9)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-          </svg>
+          <img src="https://randomuser.me/api/portraits/women/79.jpg" alt="Black woman corporate leader" />
         </div>
         <span class="for-quote">"</span>
         <p>My team is talented. The <strong>tension</strong> is real. And nothing I've tried has actually fixed it.</p>
         <span class="for-who">The Leader Absorbing Everyone Else's Conflict</span>
       </div>
       <div class="for-card for-card--blue">
+        <!-- Replace src with your own photo URL -->
         <div class="for-avatar for-avatar--blue">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="20" cy="14" r="7" fill="rgba(107,174,198,.9)"/>
-            <path d="M6 38c0-7.73 6.27-14 14-14s14 6.27 14 14" stroke="rgba(107,174,198,.9)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-          </svg>
+          <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="Executive leader" />
         </div>
         <span class="for-quote">"</span>
         <p>I'm surrounded by people — and there's <strong>no one</strong> I can actually talk to about this.</p>
@@ -536,24 +569,24 @@
     <p class="section-sub">Details are still coming together — but here's what this cohort is built on.</p>
     <div class="what-grid">
       <div class="what-card">
-        <div class="what-icon">🔬</div>
-        <h3>Framework-Driven Sessions</h3>
-        <p>Every session is structured around the Empathy Bridge Framework — no generic content, no motivational filler. You'll leave each session with something you can actually use.</p>
+        <div class="what-icon">🔥</div>
+        <h3>You'll Finally Break the Cycle</h3>
+        <p>The same pattern in every room. The same conflict with different faces. The same wall — right before your next level. The EBF gives you the framework to see it clearly, name it honestly, and move through it for good.</p>
       </div>
       <div class="what-card">
         <div class="what-icon">🤝</div>
-        <h3>Curated Peers</h3>
-        <p>This is a small, intentionally curated group. The people in the room are at your level, navigating real leadership challenges — and they'll actually push you.</p>
+        <h3>A Room That Actually Gets It</h3>
+        <p>Not a networking group. Not a mastermind. A curated room of leaders who understand the loneliness at the top — and who are ready to grow alongside you. These people will challenge you because they're doing the same work.</p>
       </div>
       <div class="what-card">
-        <div class="what-icon">⚡</div>
-        <h3>Real Work, Not Theory</h3>
-        <p>Bring your actual conflict. Your real team dynamics. The situation you can't talk about with anyone at work. This is where that becomes the curriculum.</p>
+        <div class="what-icon">💡</div>
+        <h3>Your Real Life Is the Curriculum</h3>
+        <p>Bring the conflict you can't talk about at work. The team dynamic that won't budge. The decision costing you sleep. We don't use case studies — we use your actual leadership, right now, in real time.</p>
       </div>
       <div class="what-card">
-        <div class="what-icon">🧭</div>
-        <h3>Facilitated by Brittany</h3>
-        <p>Brittany Clausen, MSW — leadership development consultant and EBF creator — leads every session. This is not a peer mastermind. It's a coached experience.</p>
+        <div class="what-icon">✨</div>
+        <h3>Guided Transformation, Not DIY</h3>
+        <p>Brittany Clausen, MSW — over a decade building and repairing leadership teams — leads every session. This isn't self-help. It's structured, emotionally intelligent coaching designed to produce real change, not just insight.</p>
       </div>
     </div>
   </div>
