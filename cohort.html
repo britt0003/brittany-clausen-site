@@ -398,10 +398,15 @@
       pointer-events: none;
     }
     .invest-inner { position: relative; z-index: 1; }
+    @keyframes eyebrowFlash {
+      0%, 45%, 100% { opacity: 1; }
+      55% { opacity: 0; }
+    }
     .invest-eyebrow {
       font-size: .68rem; font-weight: 700; letter-spacing: .16em;
       text-transform: uppercase; color: var(--gold);
       display: block; margin-bottom: 16px;
+      animation: eyebrowFlash 2.4s ease-in-out infinite;
     }
     .invest-box h2 {
       font-family: var(--font-serif);
@@ -409,7 +414,7 @@
       color: var(--white); margin-bottom: 12px;
     }
     .invest-box h2 em { color: var(--magenta); font-style: italic; }
-    .invest-sub { font-size: .95rem; color: rgba(255,255,255,.6); margin-bottom: 40px; line-height: 1.7; max-width: 480px; display: block; }
+    .invest-sub { font-size: .95rem; color: rgba(255,255,255,.6); margin: 0 auto 40px; line-height: 1.7; max-width: 480px; display: block; text-align: center; }
     .deposit-callout {
       display: inline-block;
       background: rgba(201,168,76,.08);
@@ -504,7 +509,7 @@
 
 <nav class="cohort-nav">
   <a href="/" class="nav-back">← brittanyclausen.com</a>
-  <span class="nav-badge">Cohort 01</span>
+  <span class="nav-badge">Cohort 3</span>
 </nav>
 
 <!-- HERO -->
@@ -512,7 +517,7 @@
   <div class="hero-inner">
     <div class="hero-badges">
       <span class="hero-pill">Leadership Group Coaching</span>
-      <span class="forming-live"><span class="dot"></span>Cohort Forming Now</span>
+      <span class="forming-live"><span class="dot"></span>Cohort 3 Forming Now</span>
     </div>
     <h1>Stop Managing Alone.<br /><em>Lead in Community.</em></h1>
     <p class="hero-sub">For leaders, business owners, and solopreneurs who are already capable — and still circling the same patterns. This is the room where you finally stop managing it alone and start healing, growing, and leading differently.</p>
@@ -664,7 +669,7 @@
     <div class="invest-box">
       <div class="invest-inner">
         <span class="invest-eyebrow">Reserve Your Seat</span>
-        <h2>First Cohort Is <em>Forming Now</em></h2>
+        <h2>Cohort 3 Is <em>Forming Now</em></h2>
         <span class="invest-sub">Seats are intentionally limited. A small deposit secures your place before the cohort fills — no full commitment required today.</span>
         <div class="deposit-callout">
           <span class="deposit-amount">$100</span>
@@ -691,6 +696,10 @@
     <h2 class="section-title" style="margin-bottom: 40px;">Common Questions</h2>
     <div class="faq-grid">
       <div class="faq-item">
+        <h3>Where does the cohort meet?</h3>
+        <p>Sessions are held online via Google Meet — no commute, no logistics. Just show up, be present, and do the work from wherever you are.</p>
+      </div>
+      <div class="faq-item">
         <h3>Is the $100 deposit refundable?</h3>
         <p>No — the deposit is nonrefundable. It's a commitment signal that helps us curate a serious, invested cohort. It will be applied in full toward your program balance when enrollment opens.</p>
       </div>
@@ -700,7 +709,7 @@
       </div>
       <div class="faq-item">
         <h3>When does the cohort start?</h3>
-        <p>Cohort 01 dates are being finalized. Deposit holders will receive schedule details first and have the opportunity to confirm before the cohort opens publicly.</p>
+        <p>Cohort 3 dates are being finalized. Deposit holders will receive schedule details first and have the opportunity to confirm before the cohort opens publicly.</p>
       </div>
       <div class="faq-item">
         <h3>How many people are in each cohort?</h3>
