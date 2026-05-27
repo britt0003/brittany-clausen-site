@@ -1159,9 +1159,36 @@ p:last-child { margin-bottom: 0; }
   border: 1.5px dashed var(--border);
 }
 .coming-icon { font-size: 1.8rem; flex-shrink: 0; }
-.shop-coming-card strong { display: block; font-size: .92rem; margin-bottom: 3px; }
-.shop-coming-card p { font-size: .8rem; color: var(--text-muted); margin: 0; }
+.shop-coming-card > div { flex: 1; min-width: 0; }
+.shop-coming-card strong { display: block; font-size: .92rem; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.shop-coming-card p { font-size: .78rem; color: var(--text-muted); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .shop-coming-card .btn { margin-left: auto; flex-shrink: 0; }
+
+/* Podcast Strip */
+.podcast-strip { background: var(--navy); padding: 52px 0; }
+.podcast-strip-inner {
+  display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+}
+.podcast-strip-art {
+  width: 84px; height: 84px; border-radius: 14px;
+  flex-shrink: 0; object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+}
+.podcast-strip-info { flex: 1; min-width: 0; }
+.podcast-strip-info .section-eyebrow { color: var(--gold); margin-bottom: 6px; }
+.podcast-strip-info strong { display: block; color: var(--white); font-size: 1rem; margin-bottom: 4px; }
+.podcast-strip-info p { color: rgba(255,255,255,.5); font-size: .84rem; margin: 0; }
+.podcast-strip-actions { display: flex; gap: 10px; flex-wrap: wrap; flex-shrink: 0; }
+.platform-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-sans); font-size: .78rem; font-weight: 600;
+  color: rgba(255,255,255,.8);
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 100px; padding: 8px 18px;
+  text-decoration: none; white-space: nowrap;
+  transition: var(--transition);
+}
+.platform-chip:hover { background: rgba(255,255,255,.14); color: var(--gold); border-color: rgba(201,168,76,.4); }
 
 /* Legacy grid (keep for reference) */
 .shop-grid {
