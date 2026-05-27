@@ -787,5 +787,158 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- Cohort 3 Announcement Popup -->
+  <div id="cohortPopup" class="cohort-popup" role="dialog" aria-modal="true" aria-label="Cohort 3 Announcement" hidden>
+    <div class="cohort-popup-backdrop"></div>
+    <div class="cohort-popup-card">
+      <button class="cohort-popup-close" id="cohortPopupClose" aria-label="Close">&times;</button>
+      <div class="cohort-popup-glow"></div>
+      <div class="cohort-popup-inner">
+        <div class="cohort-popup-badges">
+          <span class="cohort-popup-pill">Leadership Group Coaching</span>
+          <span class="cohort-popup-live"><span class="cohort-popup-dot"></span>Now Forming</span>
+        </div>
+        <h2 class="cohort-popup-title">Cohort 3 Is Here.</h2>
+        <p class="cohort-popup-sub">A curated, EBF-powered group coaching experience for leaders, business owners, and solopreneurs ready to break cycles and lead differently — together, online via Google Meet.</p>
+        <a href="/cohort" class="cohort-popup-btn">Learn More &amp; Reserve My Spot →</a>
+        <p class="cohort-popup-note">$100 deposit holds your seat · Seats are limited</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .cohort-popup {
+      position: fixed; inset: 0; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .cohort-popup[hidden] { display: none; }
+    .cohort-popup-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(10, 16, 32, .75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      cursor: pointer;
+    }
+    @keyframes popupIn {
+      from { opacity: 0; transform: scale(.92) translateY(16px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .cohort-popup-card {
+      position: relative; z-index: 1;
+      max-width: 480px; width: 100%;
+      background: linear-gradient(145deg, #0f1830 0%, #150d28 100%);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px;
+      overflow: hidden;
+      animation: popupIn .4s cubic-bezier(.34,1.56,.64,1) forwards;
+      box-shadow: 0 32px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(201,168,76,.15);
+    }
+    .cohort-popup-glow {
+      position: absolute; top: -60px; right: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,61,170,.28) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cohort-popup-close {
+      position: absolute; top: 14px; right: 16px;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.6);
+      font-size: 1.2rem; line-height: 1;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .2s ease, color .2s ease;
+      z-index: 2;
+    }
+    .cohort-popup-close:hover { background: rgba(255,255,255,.16); color: #fff; }
+    .cohort-popup-inner {
+      padding: 40px 36px 36px;
+      text-align: center;
+      position: relative; z-index: 1;
+    }
+    .cohort-popup-badges {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .cohort-popup-pill {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: #0a1020;
+      background: #C9A84C; border-radius: 100px; padding: 4px 12px;
+    }
+    @keyframes popupDot {
+      0%, 100% { opacity: 1; box-shadow: 0 0 6px #6ef4a0; }
+      50% { opacity: .25; box-shadow: none; }
+    }
+    .cohort-popup-live {
+      display: flex; align-items: center; gap: 6px;
+      font-size: .65rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: #6ef4a0;
+    }
+    .cohort-popup-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #6ef4a0;
+      animation: popupDot 1.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .cohort-popup-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.9rem, 5vw, 2.5rem);
+      color: #fff; line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .cohort-popup-sub {
+      font-size: .9rem; color: rgba(255,255,255,.62);
+      line-height: 1.72; margin-bottom: 28px;
+    }
+    @keyframes popupBtnFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+    @keyframes popupShimmer { 0%{left:-130%} 50%,100%{left:170%} }
+    .cohort-popup-btn {
+      display: inline-flex; align-items: center;
+      font-family: 'Poppins', system-ui, sans-serif;
+      font-weight: 600; font-size: .88rem;
+      background: linear-gradient(135deg, #B83DAA, #7c22b5);
+      color: #fff; border-radius: 100px;
+      padding: 14px 28px; text-decoration: none;
+      box-shadow: 0 6px 28px rgba(184,61,170,.45);
+      position: relative; overflow: hidden;
+      animation: popupBtnFloat 3s ease-in-out infinite;
+      margin-bottom: 16px;
+    }
+    .cohort-popup-btn::after {
+      content: '';
+      position: absolute; top: 0; left: -130%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+      transform: skewX(-20deg);
+      animation: popupShimmer 3.5s ease-in-out infinite;
+    }
+    .cohort-popup-btn:hover { box-shadow: 0 10px 40px rgba(184,61,170,.65); }
+    .cohort-popup-note {
+      font-size: .74rem; color: rgba(255,255,255,.3);
+      letter-spacing: .03em; margin: 0;
+    }
+    @media (max-width: 480px) {
+      .cohort-popup-inner { padding: 36px 24px 28px; }
+    }
+  </style>
+
+  <script>
+    (function() {
+      var popup = document.getElementById('cohortPopup');
+      var closeBtn = document.getElementById('cohortPopupClose');
+      var backdrop = popup.querySelector('.cohort-popup-backdrop');
+      if (sessionStorage.getItem('cohort3Dismissed')) return;
+      setTimeout(function() { popup.removeAttribute('hidden'); }, 1800);
+      function dismiss() {
+        popup.setAttribute('hidden', '');
+        sessionStorage.setItem('cohort3Dismissed', '1');
+      }
+      closeBtn.addEventListener('click', dismiss);
+      backdrop.addEventListener('click', dismiss);
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') dismiss(); });
+    })();
+  </script>
 </body>
 </html>
