@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leadership Group Coaching — Brittany Clausen, MSW</title>
+  <meta name="description" content="A cohort-based leadership coaching experience built on the Empathy Bridge Framework. Small group. Real work. Curated peers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:      #162040;
+      --navy-deep: #0a1020;
+      --gold:      #C9A84C;
+      --gold-lt:   #DBBE6A;
+      --magenta:   #B83DAA;
+      --blue-lt:   #6BAEC6;
+      --royal:     #4A55C4;
+      --green-live:#6ef4a0;
+      --text:      #1A1A2E;
+      --text-muted:#5A5A72;
+      --border:    #E6E0D8;
+      --cream:     #FAF8F5;
+      --warm-gray: #F4F1EC;
+      --white:     #FFFFFF;
+      --font-serif:'Playfair Display', Georgia, serif;
+      --font-sans: 'Poppins', system-ui, sans-serif;
+      --radius:    16px;
+      --transition:all .25s cubic-bezier(.4,0,.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+    .accent-bar { height: 4px; background: linear-gradient(90deg, var(--navy) 0%, #4A55C4 25%, #6BAEC6 50%, var(--magenta) 75%, var(--gold) 100%); }
+
+    /* ── NAV ── */
+    .cohort-nav {
+      background: var(--navy-deep);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .nav-back {
+      color: rgba(255,255,255,.5);
+      font-size: .8rem; font-weight: 500; letter-spacing: .04em;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: var(--transition);
+    }
+    .nav-back:hover { color: var(--gold); }
+    .nav-badge {
+      font-size: .68rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gold);
+      background: rgba(201,168,76,.1);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 100px; padding: 4px 12px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #0a1020 0%, #0f1830 50%, #150d28 100%);
+      padding: 80px 24px 96px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before, .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .hero::before {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(74,85,196,.22) 0%, transparent 70%);
+      top: -120px; right: -100px;
+    }
+    .hero::after {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(184,61,170,.16) 0%, transparent 70%);
+      bottom: -80px; left: -80px;
+    }
+    .hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-badges {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-bottom: 28px; flex-wrap: wrap;
+    }
+    .hero-pill {
+      font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--navy);
+      background: var(--gold);
+      border-radius: 100px; padding: 5px 14px;
+    }
+    @keyframes formingBlink {
+      0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--green-live), 0 0 14px rgba(110,244,160,.4); }
+      50% { opacity: .25; box-shadow: none; }
+    }
+    .forming-live {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .68rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--green-live);
+    }
+    .forming-live .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green-live);
+      animation: formingBlink 1.5s ease-in-out infinite;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--magenta); font-style: italic; }
+    .hero-sub {
+      font-size: 1.1rem; color: rgba(255,255,255,.65);
+      max-width: 580px; margin: 0 auto 40px;
+      line-height: 1.75;
+    }
+    .hero-ctas { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* ── BUTTONS ── */
+    @keyframes btnFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    @keyframes btnShimmer { 0% { left: -130%; } 50%, 100% { left: 170%; } }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--font-sans); font-weight: 600; font-size: .88rem;
+      letter-spacing: .04em; border-radius: 100px;
+      padding: 14px 28px; text-decoration: none;
+      cursor: pointer; border: none;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn-deposit {
+      background: linear-gradient(135deg, var(--magenta), #7c22b5);
+      color: var(--white);
+      box-shadow: 0 6px 28px rgba(184,61,170,.4);
+      position: relative; overflow: hidden;
+      animation: btnFloat 3s ease-in-out infinite;
+    }
+    .btn-deposit::after {
+      content: '';
+      position: absolute; top: 0; left: -130%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+      transform: skewX(-20deg);
+      animation: btnShimmer 3.5s ease-in-out infinite;
+    }
+    .btn-deposit:hover { box-shadow: 0 10px 40px rgba(184,61,170,.6); }
+    .btn-ghost-light {
+      background: transparent;
+      color: rgba(255,255,255,.75);
+      border: 1.5px solid rgba(255,255,255,.25);
+    }
+    .btn-ghost-light:hover { background: rgba(255,255,255,.07); color: var(--white); }
+
+    /* ── SECTION SHARED ── */
+    .section { padding: 80px 24px; }
+    .section--dark {
+      background: linear-gradient(160deg, #0a1020 0%, #0f1830 60%, #0a1420 100%);
+    }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .container--narrow { max-width: 760px; margin: 0 auto; }
+    .section-label {
+      display: block; text-align: center;
+      font-size: .68rem; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .section-label--light { color: var(--text-muted); }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .section-title--light { color: var(--white); }
+    .section-sub {
+      text-align: center;
+      font-size: 1rem; color: var(--text-muted);
+      max-width: 580px; margin: 0 auto 56px;
+      line-height: 1.75;
+    }
+    .section-sub--light { color: rgba(255,255,255,.6); }
+
+    /* ── FOR YOU ── */
+    .for-you-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .for-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-top: 3px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 32px 28px 28px;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .for-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(201,168,76,.15); }
+    .for-card--mag { border-top-color: var(--magenta); }
+    .for-card--mag:hover { box-shadow: 0 16px 48px rgba(184,61,170,.2); }
+    .for-card--blue { border-top-color: var(--blue-lt); }
+    .for-card--blue:hover { box-shadow: 0 16px 48px rgba(107,174,198,.2); }
+    .for-avatar {
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      border: 2px solid rgba(201,168,76,.25);
+      background: rgba(201,168,76,.08);
+    }
+    .for-avatar--mag { border-color: rgba(184,61,170,.3); background: rgba(184,61,170,.08); }
+    .for-avatar--blue { border-color: rgba(107,174,198,.3); background: rgba(107,174,198,.08); }
+    .for-avatar svg { width: 36px; height: 36px; }
+    .for-quote {
+      font-family: var(--font-serif);
+      font-size: 3rem; line-height: .8;
+      color: rgba(255,255,255,.1);
+      display: block; margin-bottom: 10px;
+    }
+    .for-card p {
+      font-size: .96rem; color: rgba(255,255,255,.8);
+      line-height: 1.65; font-style: italic; margin-bottom: 20px;
+    }
+    .for-card p strong { color: var(--white); font-style: normal; }
+    .for-card--mag p strong { color: #e094d9; }
+    .for-card--blue p strong { color: var(--blue-lt); }
+    .for-who {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,.35);
+    }
+
+    /* ── WHAT YOU GET ── */
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .what-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .what-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(22,32,64,.1); }
+    .what-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(201,168,76,.15), rgba(74,85,196,.1));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 16px;
+    }
+    .what-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem; color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .what-card p { font-size: .88rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── EBF ── */
+    .ebf-section { padding: 80px 24px; background: var(--warm-gray); }
+    .ebf-steps {
+      display: flex; align-items: flex-start;
+      gap: 0; overflow-x: auto;
+      padding: 24px 0 8px;
+    }
+    .ebf-step {
+      flex: 1; min-width: 120px; text-align: center;
+      padding: 24px 12px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: transform .25s ease, box-shadow .25s ease;
+      cursor: default;
+    }
+    .ebf-step:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(22,32,64,.1); }
+    .ebf-connector { width: 32px; flex-shrink: 0; position: relative; margin-top: 56px; }
+    .ebf-connector::after {
+      content: '→';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--gold); font-size: 1rem; opacity: .6;
+    }
+    .ebf-num { font-size: .65rem; font-weight: 700; letter-spacing: .12em; color: var(--blue-lt); margin-bottom: 8px; }
+    .ebf-name { font-family: var(--font-serif); font-size: 1rem; color: var(--navy); margin-bottom: 6px; }
+    .ebf-hint { font-size: .75rem; color: var(--text-muted); line-height: 1.5; }
+    .ebf-s1 .ebf-num, .ebf-s1 .ebf-name { color: #6BAEC6; }
+    .ebf-s2 .ebf-num, .ebf-s2 .ebf-name { color: var(--gold); }
+    .ebf-s3 .ebf-num, .ebf-s3 .ebf-name { color: var(--magenta); }
+    .ebf-s4 .ebf-num, .ebf-s4 .ebf-name { color: #9ebfff; }
+    .ebf-s5 .ebf-num, .ebf-s5 .ebf-name { color: var(--gold-lt); }
+    .ebf-dimensions {
+      display: flex; gap: 10px; justify-content: center;
+      margin-top: 28px; flex-wrap: wrap;
+    }
+    .ebf-dim {
+      font-size: .72rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; border-radius: 100px; padding: 5px 14px;
+    }
+    .ebf-dim--gold { background: rgba(201,168,76,.12); color: var(--gold); border: 1px solid rgba(201,168,76,.25); }
+    .ebf-dim--mag  { background: rgba(184,61,170,.12); color: #e094d9; border: 1px solid rgba(184,61,170,.25); }
+    .ebf-dim--blue { background: rgba(107,174,198,.12); color: var(--blue-lt); border: 1px solid rgba(107,174,198,.25); }
+
+    /* ── INVESTMENT / HOW IT WORKS ── */
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+    .how-step {
+      text-align: center;
+      padding: 32px 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      position: relative;
+    }
+    .how-step::after {
+      content: '→';
+      position: absolute; right: -16px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold); font-size: 1.2rem;
+      font-weight: 700; opacity: .5;
+    }
+    .how-step:last-child::after { display: none; }
+    .how-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--royal));
+      color: var(--white); font-size: .8rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .how-step h3 {
+      font-family: var(--font-serif);
+      font-size: 1rem; color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .how-step p { font-size: .83rem; color: var(--text-muted); line-height: 1.6; }
+
+    .invest-box {
+      background: linear-gradient(135deg, #0a1020 0%, #150d28 100%);
+      border-radius: 24px;
+      padding: 56px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .invest-box::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,61,170,.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .invest-box::after {
+      content: '';
+      position: absolute; bottom: -40px; left: -40px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,85,196,.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .invest-inner { position: relative; z-index: 1; }
+    .invest-eyebrow {
+      font-size: .68rem; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--gold);
+      display: block; margin-bottom: 16px;
+    }
+    .invest-box h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--white); margin-bottom: 12px;
+    }
+    .invest-box h2 em { color: var(--magenta); font-style: italic; }
+    .invest-sub { font-size: .95rem; color: rgba(255,255,255,.6); margin-bottom: 40px; line-height: 1.7; max-width: 480px; display: block; }
+    .deposit-callout {
+      display: inline-block;
+      background: rgba(201,168,76,.08);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: var(--radius);
+      padding: 20px 32px;
+      margin-bottom: 32px;
+    }
+    .deposit-amount {
+      font-family: var(--font-serif);
+      font-size: 2.8rem; font-weight: 700;
+      color: var(--gold); line-height: 1;
+      display: block; margin-bottom: 4px;
+    }
+    .deposit-label {
+      font-size: .78rem; color: rgba(255,255,255,.5);
+      letter-spacing: .06em; text-transform: uppercase;
+    }
+    .deposit-note {
+      display: block;
+      font-size: .8rem; color: rgba(255,255,255,.4);
+      margin-top: 12px; margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .invest-cta { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .invest-fine {
+      font-size: .75rem; color: rgba(255,255,255,.3);
+      line-height: 1.6;
+    }
+    .invest-fine a { color: rgba(255,255,255,.5); }
+
+    /* ── FAQ ── */
+    .faq-grid { display: flex; flex-direction: column; gap: 16px; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+    }
+    .faq-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1rem; color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .faq-item p { font-size: .88rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 20px 24px 28px;
+      font-size: .75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      background: var(--cream);
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-legal { display: flex; gap: 20px; justify-content: center; margin-top: 8px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .for-you-grid, .how-steps { grid-template-columns: 1fr; }
+      .what-grid { grid-template-columns: 1fr; }
+      .how-step::after { display: none; }
+      .ebf-steps { gap: 6px; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 56px 20px 72px; }
+      .invest-box { padding: 40px 24px; }
+      .hero-ctas { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="accent-bar"></div>
+
+<nav class="cohort-nav">
+  <a href="/" class="nav-back">← brittanyclausen.com</a>
+  <span class="nav-badge">Cohort 01</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badges">
+      <span class="hero-pill">Leadership Group Coaching</span>
+      <span class="forming-live"><span class="dot"></span>Cohort Forming Now</span>
+    </div>
+    <h1>Stop Managing Alone.<br /><em>Lead in Community.</em></h1>
+    <p class="hero-sub">A curated, cohort-based coaching experience for leaders ready to stop circling the same patterns — and finally do the real work, together.</p>
+    <div class="hero-ctas">
+      <a href="#invest" class="btn btn-deposit">Reserve My Spot — $100 Deposit</a>
+      <a href="#who" class="btn btn-ghost-light">Is This For Me?</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section id="who" class="section section--dark">
+  <div class="container">
+    <span class="section-label">Who This Is For</span>
+    <h2 class="section-title section-title--light">If Any of This Lands —<br />You're In the Right Place</h2>
+    <p class="section-sub section-sub--light">This cohort wasn't built for general professional development. It was built for the leader who's already capable — and still stuck.</p>
+    <div class="for-you-grid">
+      <div class="for-card">
+        <div class="for-avatar">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="14" r="7" fill="rgba(201,168,76,.9)"/>
+            <path d="M6 38c0-7.73 6.27-14 14-14s14 6.27 14 14" stroke="rgba(201,168,76,.9)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <span class="for-quote">"</span>
+        <p>I know exactly what I <strong>should</strong> do. So why do I keep ending up in the same place?</p>
+        <span class="for-who">The High Achiever Who Can't Break the Pattern</span>
+      </div>
+      <div class="for-card for-card--mag">
+        <div class="for-avatar for-avatar--mag">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="14" r="7" fill="rgba(184,61,170,.9)"/>
+            <path d="M6 38c0-7.73 6.27-14 14-14s14 6.27 14 14" stroke="rgba(184,61,170,.9)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <span class="for-quote">"</span>
+        <p>My team is talented. The <strong>tension</strong> is real. And nothing I've tried has actually fixed it.</p>
+        <span class="for-who">The Leader Absorbing Everyone Else's Conflict</span>
+      </div>
+      <div class="for-card for-card--blue">
+        <div class="for-avatar for-avatar--blue">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="14" r="7" fill="rgba(107,174,198,.9)"/>
+            <path d="M6 38c0-7.73 6.27-14 14-14s14 6.27 14 14" stroke="rgba(107,174,198,.9)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <span class="for-quote">"</span>
+        <p>I'm surrounded by people — and there's <strong>no one</strong> I can actually talk to about this.</p>
+        <span class="for-who">The Executive Who's Tired of Performing Okay</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="section">
+  <div class="container">
+    <span class="section-label section-label--light">The Experience</span>
+    <h2 class="section-title">What You Can Expect</h2>
+    <p class="section-sub">Details are still coming together — but here's what this cohort is built on.</p>
+    <div class="what-grid">
+      <div class="what-card">
+        <div class="what-icon">🔬</div>
+        <h3>Framework-Driven Sessions</h3>
+        <p>Every session is structured around the Empathy Bridge Framework — no generic content, no motivational filler. You'll leave each session with something you can actually use.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">🤝</div>
+        <h3>Curated Peers</h3>
+        <p>This is a small, intentionally curated group. The people in the room are at your level, navigating real leadership challenges — and they'll actually push you.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">⚡</div>
+        <h3>Real Work, Not Theory</h3>
+        <p>Bring your actual conflict. Your real team dynamics. The situation you can't talk about with anyone at work. This is where that becomes the curriculum.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">🧭</div>
+        <h3>Facilitated by Brittany</h3>
+        <p>Brittany Clausen, MSW — leadership development consultant and EBF creator — leads every session. This is not a peer mastermind. It's a coached experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EBF FRAMEWORK -->
+<section class="ebf-section">
+  <div class="container--narrow">
+    <span class="section-label">The Framework</span>
+    <h2 class="section-title">Built on the Empathy Bridge Framework</h2>
+    <p class="section-sub">Every session follows the EBF — a proprietary diagnostic and coaching model that addresses conflict at the emotional, relational, and organizational level.</p>
+    <div class="ebf-steps">
+      <div class="ebf-step ebf-s1">
+        <div class="ebf-num">01</div>
+        <div class="ebf-name">Awareness</div>
+        <div class="ebf-hint">See the full picture</div>
+      </div>
+      <div class="ebf-connector"></div>
+      <div class="ebf-step ebf-s2">
+        <div class="ebf-num">02</div>
+        <div class="ebf-name">Acknowledgement</div>
+        <div class="ebf-hint">Name all the truths</div>
+      </div>
+      <div class="ebf-connector"></div>
+      <div class="ebf-step ebf-s3">
+        <div class="ebf-num">03</div>
+        <div class="ebf-name">Action</div>
+        <div class="ebf-hint">Empathize, then strategize</div>
+      </div>
+      <div class="ebf-connector"></div>
+      <div class="ebf-step ebf-s4">
+        <div class="ebf-num">04</div>
+        <div class="ebf-name">Accountability</div>
+        <div class="ebf-hint">Shared responsibility</div>
+      </div>
+      <div class="ebf-connector"></div>
+      <div class="ebf-step ebf-s5">
+        <div class="ebf-num">05</div>
+        <div class="ebf-name">Achievement</div>
+        <div class="ebf-hint">Celebrate every win</div>
+      </div>
+    </div>
+    <div class="ebf-dimensions">
+      <span class="ebf-dim ebf-dim--gold">Emotional</span>
+      <span class="ebf-dim ebf-dim--mag">Relational</span>
+      <span class="ebf-dim ebf-dim--blue">Organizational</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS + INVESTMENT -->
+<section id="invest" class="section">
+  <div class="container--narrow">
+    <span class="section-label section-label--light">How to Join</span>
+    <h2 class="section-title">Three Simple Steps</h2>
+    <p class="section-sub">We keep the process simple. Pay to hold your spot, tell us about yourself, and we'll be in touch with everything you need.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <h3>Pay Your Deposit</h3>
+        <p>A $100 nonrefundable deposit holds your seat. It's applied toward your total program investment when enrollment opens.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <h3>Complete Intake Form</h3>
+        <p>After payment, you'll be taken to a short intake form — about 5 minutes. This helps us curate the right cohort.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <h3>We Reach Out</h3>
+        <p>Once the cohort is set, Brittany's team will send full details: schedule, investment, and next steps.</p>
+      </div>
+    </div>
+
+    <div class="invest-box">
+      <div class="invest-inner">
+        <span class="invest-eyebrow">Reserve Your Seat</span>
+        <h2>First Cohort Is <em>Forming Now</em></h2>
+        <span class="invest-sub">Seats are intentionally limited. A small deposit secures your place before the cohort fills — no full commitment required today.</span>
+        <div class="deposit-callout">
+          <span class="deposit-amount">$100</span>
+          <span class="deposit-label">Nonrefundable Deposit · Applied to Program</span>
+        </div>
+        <span class="deposit-note">Full program investment and schedule details will be shared<br />directly with confirmed deposit holders.</span>
+        <div class="invest-cta">
+          <!-- Replace href below with your Stripe Payment Link URL -->
+          <a href="#" class="btn btn-deposit" id="stripeBtn">Pay $100 Deposit &amp; Reserve My Spot →</a>
+          <p class="invest-fine">
+            Secure checkout via Stripe. Deposit is nonrefundable and will be applied to your program balance.<br />
+            After payment, you'll complete a short intake form. Questions? <a href="mailto:info@envisiongreatnessnow.com">info@envisiongreatnessnow.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="padding-top: 0;">
+  <div class="container--narrow">
+    <span class="section-label section-label--light">FAQ</span>
+    <h2 class="section-title" style="margin-bottom: 40px;">Common Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>Is the $100 deposit refundable?</h3>
+        <p>No — the deposit is nonrefundable. It's a commitment signal that helps us curate a serious, invested cohort. It will be applied in full toward your program balance when enrollment opens.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What's the total program investment?</h3>
+        <p>Full pricing will be shared with deposit holders before enrollment closes. We're not publishing it publicly yet — we want to talk to you first.</p>
+      </div>
+      <div class="faq-item">
+        <h3>When does the cohort start?</h3>
+        <p>Cohort 01 dates are being finalized. Deposit holders will receive schedule details first and have the opportunity to confirm before the cohort opens publicly.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How many people are in each cohort?</h3>
+        <p>Cohorts are intentionally small. We're not releasing the exact number publicly, but the whole point is that you'll actually know the people in the room.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if I pay and the cohort isn't a good fit for me?</h3>
+        <p>If after your intake form and our conversation it's clear the cohort isn't the right fit, we'll discuss next steps. We'd rather have the right people than the most people.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Brittany Clausen · Envision Greatness LLC · <a href="/">brittanyclausen.com</a></p>
+  <div class="footer-legal">
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms-of-use">Terms of Use</a>
+  </div>
+</footer>
+
+</body>
+</html>
